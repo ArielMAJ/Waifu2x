@@ -18,7 +18,8 @@ THISDIR = str(Path(__file__).resolve().parent)
 
 
 def denoise_image(args: argparse.Namespace, src: Image.Image, model: chainer.Chain) -> Image.Image:
-    """Remove noise from an image (src) using a scale model and an alpha model
+    """
+    Remove noise from an image (src) using a scale model and an alpha model
 
     Args:
         args (argparse.Namespace): argparse namespace containing config such as the block_size
@@ -48,10 +49,12 @@ def upscale_image(
     scale_model: chainer.Chain,
     alpha_model: chainer.Chain | None = None,
 ) -> Image.Image:
-    """Upscale an image (src) using a scale model and an alpha model
+    """
+    Upscale an image (src) using a scale model and an alpha model
 
     Args:
-        args (argparse.Namespace): argparse namespace containing config such as the scale_ratio and block size
+        args (argparse.Namespace): argparse namespace containing config such as the scale_ratio
+            and block size
         src (Image.Image): Pillow image to upscale
         scale_model (chainer.Chain): model to use for scaling
         alpha_model (chainer.Chain, optional): model to use for alpha. Defaults to None.
@@ -108,7 +111,8 @@ def split_alpha(src: Image.Image, model: chainer.Chain) -> tuple[Image.Image, Im
 
 
 def load_models(args: argparse.Namespace) -> dict[str, chainer.Chain]:
-    """Load models using a args config
+    """
+    Load models using a args config
 
     Args:
         args (argparse.Namespace): argparse namespace containing config such as the arch and color
@@ -159,7 +163,8 @@ def load_models(args: argparse.Namespace) -> dict[str, chainer.Chain]:
 
 
 def main():  # pragma: no cover
-    """Main entry point to the program
+    """
+    Main entry point to the program
 
     Raises:
         ValueError: Output file extension not supported
